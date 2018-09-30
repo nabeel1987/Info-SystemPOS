@@ -1,0 +1,12 @@
+<h1>Mobile: {{mobile.Name}}</h1>
+{% if error_message %}<p><strong>{{ error_message}}</strong></p>{% endif %}
+<form action="{% url 'Inventory:results' mobile.id %}" method="post">
+  {% csrf_token %}
+  {% for name in mobile.choice_set.all %}
+    <input type="text" name="Name" id="name{{ forloop.counter }}" value="{{name.id }}">
+    <label for="Name"> Name </label>
+
+
+  {% endfor %}
+ <input type="submit" value="This will re-direct to a new page i-e Results">
+</form>

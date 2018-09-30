@@ -1,0 +1,11 @@
+{% if latest_mobile_list %}
+  <ul>
+    {% for mobile in latest_mobile_list %}
+    <li>
+      <a href="% url 'Inventory:detail' mobile.id %}">{{ mobile.Name }}</a>
+    </li>
+    {% endfor %}
+    </ul>
+{% else %}
+  <p>No Mobiles are available</p>
+{% endif %}
